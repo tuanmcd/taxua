@@ -135,7 +135,7 @@ svg[data-day="3"] [data-d]:not([data-d~="3"]){opacity:.12}
       <ul>
         <li>Áo ấm, đèn pin, giày bám tốt; chân máy nếu chụp sao.</li>
         <li>Đặt bàn trưa 18/10 ở Thào Cô Đơn.</li>
-        <li>Báo Nơi Ấy nhận phòng muộn ~19:00 ngày 18/10 và đặt bữa tối.</li>
+        <li>Báo Nơi Ấy nhận phòng ~15:30–16:00 ngày 18/10, đặt bữa tối và hỏi trả phòng ~10:00 sáng 19/10.</li>
         <li>Xem dự báo thời tiết; ngày nắng sau mưa thường có mây đẹp.</li>
       </ul>
     </div>
@@ -156,9 +156,9 @@ const S = {
   tc:{n:4,name:"Thào Cô Đơn · Cây cô đơn",lat:21.2658,lng:104.5383,d:"2",dx:6,dy:-20,anchor:"end"},
   mh:{n:5,name:"Mỏm Cá Heo",lat:21.2623818,lng:104.5303513,d:"2",dx:0,dy:22,anchor:"middle"},
   tn:{n:6,name:"Thảo nguyên Tà Xùa",lat:21.2645162,lng:104.5231778,d:"2",dx:-14,dy:22,anchor:"end"},
-  dg:{n:7,name:"Đỉnh Gió",lat:21.2884985,lng:104.4156029,d:"2",dx:0,dy:-18,anchor:"start"},
-  na:{n:8,name:"Nơi Ấy Homestay",lat:21.3087694,lng:104.4544622,d:"2 3",dx:-14,dy:-8,anchor:"end"},
-  sl:{n:9,name:"Sống lưng khủng long",lat:21.3051,lng:104.4640,d:"3",dx:14,dy:6,anchor:"start"}
+  dg:{n:9,name:"Đỉnh Gió",lat:21.2884985,lng:104.4156029,d:"3",dx:0,dy:-18,anchor:"start"},
+  na:{n:7,name:"Nơi Ấy Homestay",lat:21.3087694,lng:104.4544622,d:"2 3",dx:-14,dy:-8,anchor:"end"},
+  sl:{n:8,name:"Sống lưng khủng long",lat:21.3051,lng:104.4640,d:"3",dx:14,dy:6,anchor:"start"}
 };
 const HN = "Hà Nội";
 const ll = k => `${S[k].lat},${S[k].lng}`;
@@ -181,9 +181,9 @@ const DAYS = [
     ["19:15","Ăn tối: Bếp ăn Xuân Thì","xt","4,8★ (211 đánh giá). Cơm nhà ~100k/người; có lẩu, nướng. Dự phòng: Nhà hàng A Phủ, Nhà hàng H'Mông, Đồi Mây."],
     ["~20:30","Về Mống Vàng nghỉ sớm","mv","Lấy sức sau một ngày lái xe dài; sáng hôm sau dậy sớm săn mây."]
    ]},
-  {d:2, c:"--d2", label:"Ngày 2 · Chủ Nhật 18/10", title:"Mây Khe Cải, Cây cô đơn, Mỏm Cá Heo, Thảo nguyên, hoàng hôn Đỉnh Gió",
-   path:["mv","nt","tc","mh","tn","dg","na"],
-   links:[["Chỉ đường cả ngày", dir(ll("mv"), ll("na"), [ll("nt"),ll("tc"),ll("mh"),ll("tn"),ll("dg")])]],
+  {d:2, c:"--d2", label:"Ngày 2 · Chủ Nhật 18/10", title:"Mây Khe Cải, Cây cô đơn, Mỏm Cá Heo, Thảo nguyên, về Nơi Ấy sớm",
+   path:["mv","nt","tc","mh","tn","na"],
+   links:[["Chỉ đường cả ngày", dir(ll("mv"), ll("na"), [ll("nt"),ll("tc"),ll("mh"),ll("tn")])]],
    rows:[
     ["~06:00","Trả phòng, lên Khe Cải ngồi cà phê ngắm mây","nt","Ăn sáng mì tôm tại quán. Gợi ý Nàng Tấm (sát Mống Vàng, mở từ 0h) hoặc các quán dọc đường Khe Cải. Mây đẹp thường kéo dài đến 10–11h. Mang hành lý theo luôn."],
     ["~10:00","Di chuyển xuống khu Cây cô đơn",null,"Khoảng 40–50 phút đi xe về phía đông."],
@@ -191,20 +191,21 @@ const DAYS = [
     ["~12:00","Cây cô đơn","tc","Ngay cạnh quán. Vé ~20k, hoặc mua đồ uống thay vé."],
     ["~12:45","Mỏm Cá Heo","mh","Cách Cây cô đơn ~1 km. Có gia súc thả quanh, nên đi giày."],
     ["~13:30","Thảo nguyên Tà Xùa","tn","Đồi cỏ rộng, gió mát, view núi. Vé ~35–60k/người; đồ uống tại chỗ khá đắt."],
-    ["15:30–16:00","Di chuyển lên Đỉnh Gió","dg","Khoảng 50–60 phút. Ngồi quán Đỉnh Gió hoặc Tiệm cà phê Mị ơi cùng khu."],
-    ["~17:35","Ngắm hoàng hôn ở Đỉnh Gió","dg",""],
-    ["~18:00","Về Nơi Ấy Homestay","na","Khoảng 40–50 phút, <span class='warn'>trời đã tối, lái chậm.</span> Nhận phòng ~19:00, ăn tối tại homestay."],
+    ["~14:30","Về thẳng Nơi Ấy Homestay","na","Khoảng 26 km, mất 1 tiếng đến 1 tiếng 15 phút. Đi lúc trời còn sáng, tránh lái xe buổi tối. Đoạn cuối vào khu Sống lưng khủng long đường xấu hơn, đi chậm."],
+    ["~15:45","Nhận phòng, nghỉ ngơi","na","Ngắm chiều và hoàng hôn (~17:35) ngay từ homestay nếu trời quang. Ăn tối tại homestay (đặt trước)."],
     ["Tối","Ngắm sao tại Nơi Ấy","na","Đầu tối nhiều sao, biển mây đêm dưới trăng. Sau khi trăng lặn (~0:30–1:30) là lúc tốt nhất để ngắm và chụp Ngân Hà."]
    ]},
-  {d:3, c:"--d3", label:"Ngày 3 · Thứ Hai 19/10", title:"Sống lưng khủng long, về Hà Nội",
-   path:["na","sl","na"],
-   links:[["Nơi Ấy → Sống lưng", dir(ll("na"), ll("sl"))],["Nơi Ấy → Hà Nội", dir(ll("na"), HN)]],
+  {d:3, c:"--d3", label:"Ngày 3 · Thứ Hai 19/10", title:"Sống lưng khủng long, Đỉnh Gió, về Hà Nội",
+   path:["na","sl","na","dg"],
+   links:[["Nơi Ấy → Đỉnh Gió", dir(ll("na"), ll("dg"))],["Đỉnh Gió → Hà Nội", dir(ll("dg"), HN)]],
    rows:[
     ["05:45","Bình minh & biển mây","na","Ngay từ Nơi Ấy Homestay."],
     ["07:00","Ăn sáng: Bát Mì Triệu View","sl","Mì tôm nhìn thẳng ra Sống lưng khủng long, mở từ 5h. Món ~45–60k."],
-    ["07:45","Trekking Sống lưng khủng long","sl","Chiều về là dốc lên liên tục, mang nước. <span class='warn'>Trời mưa rất trơn</span>, khi đó chỉ ngắm từ quán."],
-    ["~10:30","Về Nơi Ấy nghỉ ngơi, ăn trưa","na","Tắm rửa, thu dọn đồ."],
-    ["12:00","Trả phòng, xuất phát về Hà Nội",null,"Dự kiến về đến Hà Nội khoảng 18:00."]
+    ["07:30","Trekking Sống lưng khủng long","sl","Đi khoảng 2 tiếng. Chiều về là dốc lên liên tục, mang nước. <span class='warn'>Trời mưa rất trơn</span>, khi đó chỉ ngắm từ quán."],
+    ["~09:30","Về Nơi Ấy tắm rửa, trả phòng","na","Thu dọn đồ, trả phòng khoảng 10:00–10:15."],
+    ["~10:15","Di chuyển lên Đỉnh Gió","dg","Khoảng 13,5 km, mất 40–50 phút qua trung tâm Tà Xùa."],
+    ["~11:00","Đỉnh Gió: cà phê, ăn trưa","dg","Quán Đỉnh Gió hoặc Cà phê Đỉnh Gió (có bán đồ ăn). Đến giờ này mây thường đã tan bớt, chủ yếu ngắm view núi."],
+    ["~12:15","Xuất phát về Hà Nội",null,"Dự kiến về đến Hà Nội khoảng 18:15–18:30."]
    ]}
 ];
 
@@ -244,7 +245,7 @@ Object.entries(S).forEach(([id,s])=>{
 });
 
 const legend = document.getElementById("legend");
-Object.entries(S).forEach(([id,s])=>{
+Object.entries(S).sort((a,b)=>a[1].n-b[1].n).forEach(([id,s])=>{
   const li=document.createElement("li");
   li.innerHTML=`<span class="dot" style="background:var(${DAYS[firstDay(id)-1].c})">${s.n}</span><a href="${pin(id)}" target="_blank" rel="noopener">${s.name}</a>`;
   legend.appendChild(li);
